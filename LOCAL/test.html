@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <style type="text/css">
+  div { margin: 0px; width: 100px; height: 80px; background: green; border: 1px solid black; position: relative; }
+</style>
+
+  <script>
+  $(document).ready(function() {
+    
+$("button").click(function () {
+      $(".test1, .test2").hide("bounce", { times:3 }, 300);
+});
+
+  });
+  </script>
+</head>
+<body style="font-size:62.5%;">
+    <button>show</button>
+  <p></p><p></p><p></p><p></p><div class="test1"></div><div class="test1"></div><div class="test2"></div>
+</body>
+</html>

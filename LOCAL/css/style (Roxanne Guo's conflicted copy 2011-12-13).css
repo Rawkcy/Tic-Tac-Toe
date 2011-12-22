@@ -1,0 +1,375 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+    font-family: 'Hammersmith One', sans-serif;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("../images/gif.gif");
+}
+
+h1 {
+	position: absolute;
+    font-size: 60px;
+    color: #4FA9B8;
+/*    text-shadow: 3px 3px 0.03em #a0dfe9;
+*/  text-shadow: 0px -2px -3px #666;
+    font-family: 'Lobster13Regular', sans-serif;
+
+
+	text-align: center;
+    top:50px;
+    left: 50%;
+    margin-left: -130px;
+    line-height: 45px;
+    z-index: 1000;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+p {
+	display:inline;
+}
+
+li {
+	list-style-type: none;
+	float: left;
+	margin: 0px -4px -4px 0px; /*same as border stroke width */
+}
+
+ul.game_board {
+	position: absolute;
+	width:600px;
+	height: 650px;
+    margin: 0;
+    padding: 0;
+    top: 135px;
+    left: 50%;
+    margin-left: -246px;
+}
+
+input {
+	width: 150px;
+	padding: 7px 15px 5px 15px;  
+    font-size: 15px;  
+    background: #fff;
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    border-radius: 14px;  
+    border: 1px solid #717171;  
+	-moz-box-shadow: inset 3px 3px 7px 0px #92E0E8;
+	-webkit-box-shadow: inset 3px 3px 7px 0px #92E0E8;
+	box-shadow: inset 0px 3px 7px 0px #92E0E8;
+}  
+
+input:focus {
+	border-radius: 14px;
+	outline-color: rgba(232,231,220,255);
+    outline-opacity: 0;
+    outline-offset: 1px;
+}
+
+#scoreBar {
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	background-color: #4FA9B8;
+	overflow: hidden;
+	bottom: 0px;
+	-moz-box-shadow: 0px -5px 30px 5px #3A8A93;
+	-webkit-box-shadow: 0px -5px 30px 5px #3A8A93;
+	box-shadow: 0px 5px 30px 5px #3A8A93;
+}
+
+/*
+#vertical_left {
+	position:absolute;
+	background-image: url("../images/vertical_left.png");
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+*/
+
+.player1_tag {
+	position: absolute;
+	bottom: 46px;
+	left: 50%;
+	width: 500px;
+	margin-left: -760px;
+	z-index: 50;
+	color: #4FA9B8;
+	font-size: 40px;
+	text-align:right;
+	text-transform:uppercase;
+}
+
+.player_tag_switch {
+	opacity: 0.5;	
+}
+
+.player2_tag {
+	position: absolute;
+	bottom: 46px;
+	left: 50%;
+	margin-left: 260px;
+	z-index: 50;
+	color: #4FA9B8;
+	font-size: 40px;
+	text-transform:uppercase;
+}
+
+#p1_score {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -372px;
+	z-index: 50;
+	color: #a0dfe9;
+	font-size: 25px;
+}
+
+#p2_score {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: 262px;
+	z-index: 50;
+	color: #a0dfe9;
+	font-size: 25px;
+}
+
+.newGameButton, .return_button {
+	position: absolute;
+	top: 25px;
+	right: 50px;
+}
+
+.return_button {
+    top: -25px;
+}
+
+#startPanel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("../images/gif.gif");
+
+/*	background-color: rgba(225, 239, 244, 1);
+*/	z-index: 998;
+	display: block;
+	overflow: hidden;
+}
+
+#instructionsButton {
+	position: relative;
+	left: 50%;
+	margin-left: 1px;
+	color:;
+}
+
+.slideDownPanel {
+	left: 50%;
+    margin-left: -250px;
+    margin-top: -20px;
+	position: absolute;
+	width: 500px;
+	height: 450px;
+	background-color: rgba(225, 239, 244, 1);
+	z-index: 999;
+	display: none;
+	overflow: hidden;
+    text-align: center;
+    -moz-box-shadow: 3px 3px 10px #999;
+	-webkit-box-shadow: 3px 3px 10px #999;
+	box-shadow: 3px 3px 10px #999;
+}
+
+.instructions {
+	position: absolute;
+	width: 500px;
+	height: 800px;
+	left: 50%;
+	margin-left: -250px;
+	top: 200px;
+	color: #3A8A93;
+}
+
+#startForm {
+	position: absolute;
+	height: 800px;
+	left: 50%;
+	margin-left: -50px;
+	top: 200px;
+}
+
+#backButton {
+	position: relative;
+	left: 50%;
+	margin-left: -32px;
+}
+
+
+#player1_win, #player2_win, #tie_game {
+	position: absolute;
+    font-family: 'Hammersmith One', sans-serif;
+	font-size:50px;
+	color:#a0dfe9;
+	bottom:0px;
+	left:50%;
+	margin-left:-165px;
+	display:none;
+}
+
+#player2_win {
+    margin-left: -175px;
+}
+
+#tie_game {
+    margin-left:-115px
+}
+
+#matches, #freeplay, #tie_breaker {
+    display: none;
+	font-size: 15px;
+	position: absolute;
+	color:#4FA9B8;
+	left: 50%;
+	margin-left: -244px;
+	top: 125px;
+}
+
+.content {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+   
+.player_badges1 {
+	position: absolute;
+	width: 100px;
+	height: 300px;
+	background-image: url("../images/players.png");
+	top: 170px;
+	left:45px;
+}
+
+.player_badges2 {
+	background-position:-100px 0;	
+}
+
+
+.player_inputs, .player1, .player2, .max_num_matches {
+	position: relative;
+	left: 50%;
+	margin-left: -90px;
+	color: #3A8A93;
+}
+
+/*
+.player1, .player2 {
+	position: relative;
+	left: 50%;
+	margin-left: -90px;
+	color: #3A8A93;
+}
+*/
+
+.allBoxes {
+	position:relative;
+	width:160px;
+	height:160px;
+	margin: 4px;
+	background-color: #4FA9B8;
+	cursor: crosshair;
+}
+
+div.allBoxes:hover {
+	position: relative;
+	background-color: #3A8A93;
+	/*background-color: rgba(248, 4, 63, 150);*/
+}
+
+.x {
+	position:relative;
+	width:200px;
+	height:200px;
+	background-image: url("../images/x.png");
+	background-repeat: no-repeat;
+}
+
+.o {
+	position:relative;
+	width:200px;
+	height:200px;
+	background-image: url("../images/o.png");
+	background-repeat: no-repeat;
+}
+
+.startButton {
+	position: relative;
+	left: 50%;
+	margin-left: -50px;
+}
+
+
+
+button{
+    background-color: #4FA9B8;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#3A8A93), to(#4FA9B8));
+    background-image: -webkit-linear-gradient(top, #3A8A93, #4FA9B8);
+    background-image: -moz-linear-gradient(top, #3A8A93, #4FA9B8);
+    background-image: -ms-linear-gradient(top, #3A8A93, #4FA9B8);
+    background-image: -o-linear-gradient(top, #3A8A93, #4FA9B8);
+    background-image: linear-gradient(top, #3A8A93, #4FA9B8);
+
+    border: 1px solid #3A8A93;
+    color: #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.6) inset, 0 1px 0 rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.6) inset, 0 1px 0 rgba(0,0,0,.3);
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.6) inset, 0 1px 0 rgba(0,0,0,.3);
+    cursor: pointer;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 16px;
+    padding: 6px 10px 3px 10px;
+    margin: 70px 0px 0px 47px;
+}
+
+button:active
+{
+    -moz-box-shadow: 0 0 3px 1px rgba(0,0,0,.2) inset;
+    -webkit-box-shadow: 0 0 3px 1px rgba(0,0,0,.2) inset;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,.2) inset;
+    position: relative;
+    top: 1px;
+}
+
+
+@font-face {
+    font-family: 'Lobster13Regular';
+    src: url('lobster_1.3-webfont.eot');
+    src: url('lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lobster_1.3-webfont.woff') format('woff'),
+         url('lobster_1.3-webfont.ttf') format('truetype'),
+         url('lobster_1.3-webfont.svg#Lobster13Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

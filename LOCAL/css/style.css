@@ -1,0 +1,453 @@
+/*
+ *
+ * =======================================
+ * Tic Tac Toe Javascript / HTML game
+ * December 2nd, 2011
+ * 
+ * <(^-^<) Sarah Hum & Roxanne Guo (>^-^)>
+ * =======================================
+ *
+ *
+ */
+
+/* Colour changes for alternate stylesheet
+reg: 4FA9B8 to E04457
+dark: 3A8A93 to B52C43
+light: a0dfe9 to F7C4CC
+
+Also:
+comment out the respective style box
+change x and o icons
+*/
+
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}
+.footer, .push {
+height: 4em;
+}
+
+/*----------------------------------Default tags----------------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	/*background-image: url("../images/gif.gif");*/
+	background-color: #1c1c1c;
+	overflow: hidden;z
+}
+
+h1 {
+	position: absolute;
+    font-size: 60px;
+    color: #4FA9B8;
+/*    text-shadow: 3px 3px 0.03em #a0dfe9;
+*/  text-shadow: 0px -2px -3px #666;
+    font-family: 'Lobster13Regular', sans-serif;
+	text-align: center;
+    top:50px;
+    left: 50%;
+    margin-left: -130px;
+    line-height: 45px;
+    z-index: 1002;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+p {
+	display:inline;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+li {
+	list-style-type: none;
+	float: left;
+	margin: 0px -4px -4px 0px; /*same as border stroke width */
+}
+
+ul.game_board {
+	position: absolute;
+	width:600px;
+	/*height: 650px;*/
+    margin: 0;
+    padding: 0;
+    top: 135px;
+    left: 50%;
+    margin-left: -246px;
+	overflow: hidden;
+}
+
+input {
+	width: 150px;
+	padding: 7px 15px 5px 15px;  
+    font-size: 15px;  
+    background: #ededed;
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    border-radius: 14px;  
+    border: 1px solid #717171;  
+	-moz-box-shadow: inset 3px 3px 7px 0px #666;
+	-webkit-box-shadow: inset 3px 3px 7px 0px #666;
+	box-shadow: inset 0px 3px 7px 0px #666;
+}  
+
+input:focus {
+	border-radius: 14px;
+	outline-color:#1c1c1c;
+    outline-opacity: 0;
+    outline-offset: 1px;
+}
+
+/*----------------------------------Score bar----------------------------------*/
+
+div.scoreBar {
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	background-color: #4FA9B8;
+	bottom: 0px;
+	-moz-box-shadow: 0px -5px 30px 5px #3A8A93;
+	-webkit-box-shadow: 0px -5px 30px 5px #3A8A93;
+	box-shadow: 0px 5px 30px 5px #3A8A93;
+}
+
+#p1_score {
+	position: absolute;
+	bottom: 15px;
+	left: 50%;
+	margin-left: -370px;
+	z-index: 50;
+	color: #a0dfe9;
+	font-size: 25px;
+}
+
+#p2_score {
+	position: absolute;
+	bottom: 15px;
+	left: 50%;
+	margin-left: 262px;
+	z-index: 50;
+	color: #a0dfe9;
+	font-size: 25px;
+}
+
+#player1_win, #player2_win, #tie_game {
+	position: absolute;
+	width: 550px;
+    font-family: 'Ubuntu', sans-serif;
+	font-size:40px;
+	color:#a0dfe9;
+	bottom:7px;
+	left:50%;
+	margin-left:-275px;
+	display:none;
+	text-align: center;
+}
+
+.player1_tag {
+	position: absolute;
+	bottom: 51px;
+	left: 50%;
+	width: 500px;
+	margin-left: -760px;
+	z-index: 50;
+	color: #4FA9B8;
+	font-size: 40px;
+	text-align:right;
+	text-transform:uppercase;
+}
+
+.player2_tag {
+	position: absolute;
+	bottom: 51px;
+	left: 50%;
+	margin-left: 260px;
+	z-index: 50;
+	color: #4FA9B8;
+	font-size: 40px;
+	text-transform:uppercase;
+}
+
+.player_tag_switch {
+	opacity: 0.3;	
+}
+
+.player_symbol_x, .player_symbol_o {
+	position: absolute;
+	width: 27px;
+	height: 27px;
+	bottom: 17px;
+	left: 50%;
+	margin-left: -240px;
+	z-index: 100;
+	background-image: url("../images/x_tag.png");
+}
+
+.player_symbol_o {
+	left: 50%;
+	margin-left: 220px;
+	z-index: 100;
+	background-image: url("../images/o_tag.png");
+}
+
+.copyright {
+	position: absolute;
+	font-size: 12px;
+	color: #fff;
+	left: 5px;
+	bottom: 5px;
+	opacity: 0.5;
+}
+
+/*----------------------------------Game Screen Right Side----------------------------------*/
+
+#tweet, .newGameButton, .return_button {
+	position: absolute;
+	top: 45px;
+	right: 50px;
+	z-index: 1000;
+}
+
+.return_button {
+    top: 7px;
+}
+
+#tweet {
+	top: 18px;
+	z-index: 1004;
+}
+
+.highlight {
+	-moz-box-shadow: 0 0 5px 5px #E04457;
+	-webkit-box-shadow: 0 0 5px 5px#E04457;
+	box-shadow: 0 0 5px 5px #E04457;
+	margin-right: 4px;
+}
+
+/*.defaultStyle {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color:#4FA9B8;
+	top: 17px;
+	right: 15px;
+	cursor: pointer;
+	z-index: 1004;
+}*/
+
+.alternateStyle {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color:#E04457;
+	right: 15px;
+	top: 17px;
+	cursor: pointer;
+	z-index: 1004;
+}
+
+/*----------------------------------Slidedown Panels----------------------------------*/
+
+#startPanel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+/*	background-image: url("../images/gif.gif");
+*/	background-color: #1c1c1c;
+	z-index: 1001;
+	display: block;
+	/*overflow: hidden;*/
+}
+
+#instructionsPanel {
+	z-index: 1003;	
+}
+
+#backButton {
+	position: relative;
+	left: 50%;
+	margin-left: -32px;
+}
+
+#winner, #win {
+	text-transform:uppercase;
+}
+
+#tie_breaker_button {
+	margin-top: 29px;	
+}
+
+.slideDownPanel {
+    top: 0px;
+    left: 0px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	display: none;
+/*	overflow: hidden;
+*/    text-align: center;
+}
+
+.panelContents {
+	position: absolute;
+	width: 100%;
+	height: 300px;
+	top: 190px;
+	color: #fff;
+	background-color: #4FA9B8;
+    -moz-box-shadow: 0px 0px 10px #3A8A93;
+	-webkit-box-shadow: 0px 0px 10px #3A8A93;
+	box-shadow: 0px 0px 20px #3A8A93;
+}
+
+.panelText {
+	margin-top: 50px;
+	font-size: 40px;
+}
+
+.panelScore {
+	font-size: 80px;
+}
+
+/*----------------------------------Start Screen----------------------------------*/
+
+#startForm {
+	position: absolute;
+	/*height: 800px;*/
+	left: 50%;
+	margin-left: -50px;
+	top: 200px;
+}
+
+#instructionsButton {
+	position: relative;
+	left: 50%;
+	margin-left: 2px;
+}
+
+.startButton {
+	position: relative;
+	left: 50%;
+	margin-left: -50px;
+}
+
+.player_inputs, .player1, .player2, .max_num_matches {
+	position: relative;
+	left: 50%;
+	margin-left: -90px;
+	margin-top: 3px;
+	color: #3A8A93;
+}
+
+/*----------------------------------Gameboard----------------------------------*/
+
+#matches, #freeplay, #tie_breaker {
+    display: none;
+	font-size: 15px;
+	position: absolute;
+	color:#4FA9B8;
+	left: 50%;
+	margin-left: -243px;
+	top: 125px;
+}
+
+.allBoxes {
+	position:relative;
+	width:160px;
+	height:160px;
+	margin: 4px;
+	background-color: #4FA9B8;
+	cursor: crosshair;
+	overflow: hidden;
+}
+
+div.allBoxes:hover {
+	position: relative;
+	background-color: #3A8A93;
+	/*background-color: rgba(248, 4, 63, 150);*/
+}
+
+.x {
+	position:relative;
+	width:200px;
+	height:200px;
+	background-image: url("../images/x_blue.png");
+	background-repeat: no-repeat;
+}
+
+.o {
+	position:relative;
+	width:200px;
+	height:200px;
+	background-image: url("../images/o_blue.png");
+	background-repeat: no-repeat;
+}
+
+/*----------------------------------Long styling----------------------------------*/
+
+button{
+    background-color: #4FA9B8;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#3A8A93), to(#4FA9B8));
+    background-image: -webkit-linear-gradient(top, #3A8A93, #4FA9B8);
+    background-image: -moz-linear-gradient(top, #3A8A93, #4FA9B8);
+    background-image: -ms-linear-gradient(top, #3A8A93, #4FA9B8);
+    background-image: -o-linear-gradient(top, #3A8A93, #4FA9B8);
+    background-image: linear-gradient(top, #3A8A93, #4FA9B8);
+
+    border: 1px solid #3A8A93;
+    color: #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.6) inset, 0 1px 0 rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.6) inset, 0 1px 0 rgba(0,0,0,.3);
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.6) inset, 0 1px 0 rgba(0,0,0,.3);
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    padding: 6px 10px 3px 10px;
+    margin: 40px 0px 0px 0px;
+}
+
+button:active
+{
+    -moz-box-shadow: 0 0 3px 1px rgba(0,0,0,.2) inset;
+    -webkit-box-shadow: 0 0 3px 1px rgba(0,0,0,.2) inset;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,.2) inset;
+    position: relative;
+    top: 1px;
+}
+
+@font-face {
+    font-family: 'Lobster13Regular';
+    src: url('lobster_1.3-webfont.eot');
+    src: url('lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lobster_1.3-webfont.woff') format('woff'),
+         url('lobster_1.3-webfont.ttf') format('truetype'),
+         url('lobster_1.3-webfont.svg#Lobster13Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

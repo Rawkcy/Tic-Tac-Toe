@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" title="default">
+    <link rel="alternate stylesheet" type="text/css" href="css/style_red.css" title="alternate">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+
+    <!-- Jquery and jquery UI files -->
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+    <!-- Load the js files for tic tac game -->
+    <script src="js/ttt_game.js" type="text/javascript"></script>
+    <script src="js/ttt_fancy.js" type="text/javascript"></script>
+
+    <title>Tic Tac Toe EXTREME</title>
+</head>
+
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div class="defaultStyle" onclick="setActiveStyleSheet('default'); return false;"></div>
+    <div class="alternateStyle" onclick="setActiveStyleSheet('alternate'); return false;"></div>
+
+    <div id="instructionsPanel" class="slideDownPanel">
+        <div class="panelContents"><br><br><br><br>
+            <p>HOW TO PLAY:<br><br>Player vs. Player<br><br>Players try to get three in a row.</p><br>
+            <button id="instructionsBack">BACK</button>
+        </div>
+    </div>
+
+    <div id="startPanel">
+        <div id="startForm">
+            <form class="player_names">
+                <p class="player_inputs">PLAYER 1:</p><br /><input type="text" autofocus="autofocus" class="player1" /><br /><br />
+                <p class="player_inputs">PLAYER 2:</p><br /><input type="text" class="player2" /><br /><br />
+            </form>
+            <form class="max_matches">
+                <p class="player_inputs"># OF MATCHES:</p><br /><input type="text" class="max_num_matches"><br />
+            </form>
+            <button class="startButton update_players_button max_num_button">START</button>
+            <button id="instructionsButton">?</button> 
+        </div>
+        <div class="scoreBar">
+            <p class="copyright">&#169; ROXANNE GUO & <a href="http://www.sarahhum.com" target="_blank">SARAH HUM</a> | 2011</p>
+        </div>
+    </div>
+
+    <button class="return_button" style="font-size:12px">RETURN TO MENU</button>
+    <button class="newGameButton" style="font-size:12px">NEW GAME</button>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="rawkcy" data-lang="en" data-count="none">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <!-- LIVE THEME FACEBOOK BUTTON -->
+    <div class="fb_cover"></div>
+<iframe id="fb" src="http://www.facebook.com/plugins/like.php?href=http://www.catesque.com/tictactoe"
+        scrolling="no" frameborder="0" data-send="false" data-width="450" data-show-faces="false" data-layout="button_count" style="position: absolute; top: 15px; right: -285px; z-index: 1003; border:none; width:450px; height:23px"></iframe>
+
+
+    <!-- Slide down when the players have tied -->
+    <div id="player_tie" class="slideDownPanel">
+        <div class="panelContents"><br><br>
+            <p class="panelText">THE SCORE IS:</p><br><p class="panelScore"><span id="player1"></span> - <span id="player2"></span></p><br>
+            <button id="tie_breaker_button">TIE BREAKER</button>
+        </div>
+    </div>
+
+    <!-- Slide down when a player has won -->
+    <div id="player_win" class="slideDownPanel">
+        <div class="panelContents"><br><br><br><br>
+            <p class="panelText"><span id="winner"></span> WINS!</p><br><br>
+            <p class="panelScore"><span id="player1" ></span> - <span id="player2"></span><br><br></p>
+        </div>
+    </div>
+
+    <!-- Gameboard containing the 9 squares -->
+    <ul class="game_board">
+        <li><div id="box1" class="allBoxes">
+            <div></div>
+        </div></li>
+        <li><div id="box2" class="allBoxes">
+            <div></div>
+        </div></li>
+        <li><div id="box3" class="allBoxes">
+            <div></div>
+        </div></li>
+        <li><div id="box4" class="allBoxes">
+            <div></div>
+        </div></li>
+        <li><div id="box5" class="allBoxes">
+            <div></div>
+        </div></li>
+        <li><div id="box6" class="allBoxes">
+            <div></div>
+        </div></li>
+        <li><div id="box7" class="allBoxes">
+            <div></div>
+        </div></li>
+        <li><div id="box8" class="allBoxes">
+            <div></div>
+        </div></li>
+        <li><div id="box9" class="allBoxes">
+            <div></div>
+        </div></li>
+    </ul>
+
+    <div class="game_type">
+        <div id="matches">MATCH <span id="match_number">1</span> OF <span id="id_max_matches"></span></div>
+        <div id="freeplay">FREEPLAY</div>
+        <div id="tie_breaker">TIE BREAKER!</div>
+    </div>
+    <div class="push"></div>
+</div>
+
+<div class="footer">
+    <div class="scoreBar">
+        <div id="player1_win"><span id="win"></span> WINS!</div>
+        <div id="player2_win"><span id="win"></span> WINS!</div>
+        <div id="tie_game">IT'S A TIE!</div>
+        <h2 id="p1_score">SCORE: <span>0</span></h2>
+        <h2 id="p2_score">SCORE: <span>0</span></h2>
+    </div>  
+    <p class="player_symbol_x"></p>
+    <p class="player_symbol_o"></p>
+    <p class="player1_tag">PLAYER ONE</p>
+    <p class="player2_tag">PLAYER TWO</p>   
+    <p class="copyright">&#169; <a href="http://twitter.com/#!/Rawkcy" target="_blank">ROXANNE GUO</a> & <a href="http://www.sarahhum.com" target="_blank">SARAH HUM</a> | 2011</p>
+
+</body>
+</html>

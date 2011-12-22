@@ -1,0 +1,16 @@
+{
+  "name": "Tic Tac Toe Extreme",
+  "description": "A simple PvP, javascript/html tic tac toe game.",
+  "version": "1.0.2",
+  "icons": {
+    "128": "ttt.png"
+  },
+  "app": {
+    "urls": [
+      "http://www.catesque.com/tictactoe"
+    ],
+    "launch": {
+      "web_url": "http://www.catesque.com/tictactoe/"
+    }
+  }
+}
